@@ -1,42 +1,42 @@
 import React, { useState } from "react";
 import "../NavBar/NavBar.css";
 
-function NavBar() {
-  const [active, setActive] = useState("nav_menu");
-  const [toggleIcon, setToggleIcon] = useState("nav_toggler");
+function Navbar() {
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
   const navToggle = () => {
-    active === "nav_menu"
-      ? setActive("nav_menu nav_active")
-      : setActive("nav_menu");
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else setActive("nav__menu");
 
-    toggleIcon === "nav_toggler"
-      ? setToggleIcon("nav_toggler toggle")
-      : setToggleIcon("nav_toggler");
+    // Icon Toggler
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+    } else setIcon("nav__toggler");
   };
   return (
-    <nav>
-      oi
-      <a href="#" className="nav_brand">
+    <nav className="nav">
+      <a href="#" className="nav__brand">
         Portfolio
       </a>
       <ul className={active}>
-        <li className="nav_item">
-          <a href="#" className="nav_link">
+        <li className="nav__item">
+          <a href="#" className="nav__link">
             Créditos
           </a>
         </li>
-        <li className="nav_item">
-          <a href="#" className="nav_link">
+        <li className="nav__item">
+          <a href="#" className="nav__link">
             Sobre o Jogo
           </a>
         </li>
-        <li className="nav_item">
-          <a href="#" className="nav_link">
+        <li className="nav__item">
+          <a href="#" className="nav__link">
             Repositório
           </a>
         </li>
       </ul>
-      <div onClick={navToggle} className={toggleIcon}>
+      <div onClick={navToggle} className={icon}>
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
@@ -44,4 +44,5 @@ function NavBar() {
     </nav>
   );
 }
-export default NavBar;
+
+export default Navbar;
